@@ -20,7 +20,7 @@ public class AdminController {
 
         adminService.addAdmin(admin);
 
-        return new ResponseEntity<>("Admin added successfully...", HttpStatus.OK);
+        return new ResponseEntity<>("Admin added successfully.", HttpStatus.OK);
     }
 
     @GetMapping("getAdminList")
