@@ -18,6 +18,6 @@ public class Category extends MetaEntity {
 
     private String categoryName;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "categoryId", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "categoryId", fetch = FetchType.LAZY)
     private List<Video> video;
 }

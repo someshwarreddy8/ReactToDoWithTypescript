@@ -7,6 +7,7 @@ import com.kairos.repository.VideoRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Optional;
 
 @Service
@@ -15,6 +16,7 @@ public class VideoService {
     private VideoRepo videoRepo;
     @Autowired
     private CategoryRepo categoryRepo;
+
     public void addVideo(Video video) {
         try {
             Category category = categoryRepo.findById(video.getCategoryId().getId()).get();
@@ -50,5 +52,12 @@ public class VideoService {
         }
 
         videoRepo.save(videoById);
+    }
+    public ArrayList<Video> getVideos() {
+        try {
+            return (ArrayList<Video>) videoRepo.findAll();
+        } catch (Exception e) {
+            throw new RuntimeException("Error occurred while getting all the videos.", e);
+        }
     }
 }

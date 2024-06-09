@@ -38,7 +38,9 @@ public class VideoController {
     @GetMapping("getVideos")
     public ResponseEntity<ArrayList<Video>> getVideosList() {
 
-        ArrayList<Video> videos = new ArrayList<>();
+        ArrayList<Video> videos;
+
+        videos = videoService.getVideos();
 
         return new ResponseEntity<>(videos, HttpStatus.OK);
     }

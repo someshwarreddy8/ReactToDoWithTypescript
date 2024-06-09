@@ -18,11 +18,11 @@ public class Video extends MetaEntity {
     private Long likes;
     private Long disLikes;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id", foreignKey = @ForeignKey(name = "fk_video_and_category"))
     private Category categoryId;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "videoId", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "videoId", fetch = FetchType.LAZY)
     private List<Comment> comment;
 
 }
