@@ -9,7 +9,7 @@ import lombok.ToString;
 @Setter
 @Getter
 @ToString
-public class Comment extends MetaEntity {
+public class Comment extends MetaDataEntity {
 
     private String description;
 
