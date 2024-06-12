@@ -33,9 +33,12 @@ public class CategoriesController {
     @GetMapping("getCategories")
     public ResponseEntity<ArrayList<Category>> getCategoriesList() {
 
-        ArrayList<Category> categories = new ArrayList<>();
+        ArrayList<Category> categories;
+
+        categories=categoryService.getCategories();
 
         return new ResponseEntity<>(categories, HttpStatus.OK);
     }
+
 
 }

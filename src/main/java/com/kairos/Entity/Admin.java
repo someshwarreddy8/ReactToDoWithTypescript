@@ -9,7 +9,7 @@ import lombok.ToString;
 @Getter
 @ToString
 @Entity
-public class Admin extends MetaEntity {
+public class Admin extends MetaDataEntity {
 
     private String adminName;
     private String password;

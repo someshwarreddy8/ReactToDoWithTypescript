@@ -19,8 +19,8 @@ public class VideoService {
 
     public void addVideo(Video video) {
         try {
-            Category category = categoryRepo.findById(video.getCategoryId().getId()).get();
-            video.setCategoryId(category);
+            Category category = categoryRepo.findById(Long.parseLong(video.getCategori())).get();
+            video.setCategory(category);
         } catch (Exception ex) {
             throw new RuntimeException("Exception while getting category by id", ex);
         }
@@ -45,19 +45,37 @@ public class VideoService {
             throw new RuntimeException("Exception occurred while updating video with id", e);
         }
         try {
-            category = categoryRepo.findById(video.getCategoryId().getId());
-            videoById.setCategoryId(category.get());
+            category = categoryRepo.findById(Long.parseLong(video.getCategori()));
+            videoById.setCategory(category.get());
         } catch (Exception e) {
             throw new RuntimeException("Exception occurred while getting category to update video", e);
         }
 
         videoRepo.save(videoById);
     }
+
     public ArrayList<Video> getVideos() {
         try {
             return (ArrayList<Video>) videoRepo.findAll();
         } catch (Exception e) {
             throw new RuntimeException("Error occurred while getting all the videos.", e);
+        }
+    }
+
+    public Video getVideo(Long videoId) {
+        try {
+            return videoRepo.findById(videoId).get();
+        } catch (Exception ex) {
+            throw new RuntimeException("Error occurred while getting the video with id: " + videoId, ex);
+
+        }
+    }
+
+    public void deleteVideo(Long id) {
+        try {
+            videoRepo.deleteById(id);
+        } catch (Exception ex) {
+            throw new RuntimeException("Error occurred while deleting video with id: " + id, ex);
         }
     }
 }

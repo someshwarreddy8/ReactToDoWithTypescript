@@ -32,6 +32,8 @@ public class VideoController {
     @DeleteMapping("deleteVideo/{id}")
     public ResponseEntity<String> deleteVideo(@PathVariable Long id) {
 
+        videoService.deleteVideo(id);
+
         return new ResponseEntity<>("Video is deleted successfully", HttpStatus.OK);
     }
 
@@ -41,14 +43,18 @@ public class VideoController {
         ArrayList<Video> videos;
 
         videos = videoService.getVideos();
+        videos.stream().forEach(video -> video.setCategori(String.valueOf(video.getCategory().getId())));
 
         return new ResponseEntity<>(videos, HttpStatus.OK);
     }
 
-    @GetMapping("getVideo/{id}")
+    @GetMapping("getVideo/{videoId}")
     public ResponseEntity<Video> getVideo(@PathVariable Long videoId) {
 
-        Video video = new Video();
+        Video video;
+
+        video = videoService.getVideo(videoId);
+        video.setCategori(String.valueOf(video.getCategory().getId()));
 
         return new ResponseEntity<>(video, HttpStatus.OK);
     }

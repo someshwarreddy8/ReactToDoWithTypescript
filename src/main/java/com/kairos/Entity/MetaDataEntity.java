@@ -11,7 +11,7 @@ import java.time.ZonedDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @MappedSuperclass
-public class MetaEntity extends BaseEntity {
+public class MetaDataEntity extends BaseEntity {
     private String createdBy;
     @Column(columnDefinition = "TIMESTAMP WITH TIME ZONE")
     private ZonedDateTime createdAt = ZonedDateTime.now();

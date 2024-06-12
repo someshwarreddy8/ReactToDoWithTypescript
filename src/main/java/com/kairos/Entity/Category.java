@@ -14,10 +14,10 @@ import java.util.List;
 @Setter
 @Getter
 @ToString
-public class Category extends MetaEntity {
+public class Category extends MetaDataEntity {
 
     private String categoryName;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "categoryId", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "category", fetch = FetchType.LAZY)
     private List<Video> video;
 }
