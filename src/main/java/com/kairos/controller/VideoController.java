@@ -39,7 +39,7 @@ public class VideoController {
 
     @GetMapping("getVideos")
     public ResponseEntity<ArrayList<Video>> getVideosList() {
-
+        System.out.println("In video: getVideosList");
         ArrayList<Video> videos;
 
         videos = videoService.getVideos();
