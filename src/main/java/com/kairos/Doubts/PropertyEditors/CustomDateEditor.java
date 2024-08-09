@@ -6,8 +6,10 @@ public class CustomDateEditor {
     public static void main(String[] args) {
         String date = "26-08-1998";
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        System.out.println(date);
 //        new CustomDateEditor(formatter, true);
         //trigger check
         //tc4
+        //tc5
     }
 }
