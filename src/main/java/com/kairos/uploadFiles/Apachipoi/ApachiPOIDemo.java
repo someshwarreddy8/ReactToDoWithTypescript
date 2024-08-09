@@ -1,5 +1,7 @@
-package com.kairos.uploadFiles.dto;
+package com.kairos.uploadFiles.Apachipoi;
 
+import com.kairos.uploadFiles.dto.TestCase;
+import com.kairos.uploadFiles.dto.TestCaseHeader;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
