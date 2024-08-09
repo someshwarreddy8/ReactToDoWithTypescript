@@ -8,6 +8,7 @@ public class CustomDateEditor {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         System.out.println(date);
         System.out.println(date);
+        System.out.println(date);
 //        new CustomDateEditor(formatter, true);
         //trigger check
         //tc4
