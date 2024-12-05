@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -19,5 +20,7 @@ public class Category extends MetaDataEntity {
     private String categoryName;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "category", fetch = FetchType.LAZY)
-    private List<Video> video;
+    private List<Video> video = new ArrayList<>();
+
+
 }
